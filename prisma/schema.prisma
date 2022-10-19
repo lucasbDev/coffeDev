@@ -8,36 +8,35 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-
 }
 
 model Deliveryman {
-  id String @id @default(uuid())
-  name String @unique
+  id       String @id @default(uuid())
+  username String @unique
   password String
 
-  @@map("deliveryman")
   Deliveries Deliveries[]
+
+  @@map("deliveryman")
 }
 
 model Clients {
-  id String @id @default(uuid())
-  name String @unique
+  id       String @id @default(uuid())
+  username String @unique
   password String
 
-  @@map("clients")
   Deliveries Deliveries[]
+
+  @@map("clients")
 }
 
 model Deliveries {
-  id String @id @default(uuid())
-  item_name String
-  id_client String
-  client Clients @relation(fields: [id_client]references: [id])
+  id             String      @id @default(uuid())
+  item_name      String
+  id_client      String
+  client         Clients     @relation(fields: [id_client], references: [id])
   id_deliveryman String
-  delivery Deliveryman @relation(fields: [id_deliveryman]references: [id])
-  created_at DateTime @default(now())
-  end_at DateTime @default(now())
-
-  @@map("deliveries")
+  delivery       Deliveryman @relation(fields: [id_deliveryman], references: [id])
+  created_at     DateTime    @default(now())
+  end_at         DateTime    @default(now())
 }

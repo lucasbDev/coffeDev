@@ -6,7 +6,11 @@
 # Como rodar o projeto
 ```bash
 git clone https://github.com/lucasbDev/coffeDev.git
+```
+```
 yarn
+```
+```
 yarn dev
 ```
 

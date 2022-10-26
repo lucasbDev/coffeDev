@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import { CreateClientRepository } from "../repositories/CreateClientRepository";
+import { CreateDeliveryManRepository } from "../repositories/CreateDelivreyMan";
 
-export class CreateClientController {
+export class CreateDeliveryManController {
     async handle(request: Request, response: Response) {
         const { username, password } = request.body
 
-        const createClientRepository = new CreateClientRepository();
-        const result = await createClientRepository.execute({
+        const createDeliveryManRepository = new CreateDeliveryManRepository();
+        const result = await createDeliveryManRepository.execute({
             username,
             password,
         });

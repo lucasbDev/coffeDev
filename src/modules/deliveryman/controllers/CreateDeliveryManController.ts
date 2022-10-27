@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { CreateDeliveryManRepository } from "../repositories/CreateDelivreyMan";
+import { CreateDeliveryManRepository } from "../repositories/CreateDelivreryMan";
 
 export class CreateDeliveryManController {
     async handle(request: Request, response: Response) {

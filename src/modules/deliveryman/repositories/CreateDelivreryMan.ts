@@ -9,7 +9,8 @@ export class CreateDeliveryManRepository {
         const DeliverymanExists = await prisma.deliveryman.findFirst({
             where: {
                 username: {
-                    mode: "insensitive"
+                    equals: username, //comparando se já existe
+                    mode: "insensitive",
                 }
             }
         })
